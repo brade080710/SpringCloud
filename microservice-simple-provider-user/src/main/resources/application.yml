@@ -10,6 +10,17 @@ logging:
     file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %5p -- [%t] %-40.40logger{39} : %m%n%xEx{10}'
     console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %5p -- [%t] %-40.40logger{39} : %m%n%xEx{10}'
 
-
-
-
+#配置监控Actuator
+#http://localhost:8081/actuator/metrics
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#          # 暴露metrics端点，如需暴露多个，用,分隔；如需暴露所有端点，用'*'
+#          include: metrics
+#http://localhost:8081/actuator/health
+management:
+  endpoint:
+    health:
+      # 是否展示健康检查详情
+      show-details: always

@@ -1,0 +1,38 @@
+
+注意点：
+
+如果两个Eureka Server实例在同一台机器上启动，那么配置hosts的这一步不能少。原因：Eureka Server对端口是不敏感的，这意味着，如果直接用IP的形式（例如地址写成http://127.0.0.1:8761/eureka/）相互注册，
+Eureka Server误认为两个Eureka Server实例是一个实例——这会造成Eureka Server首页显示不正常等一系列问题！！
+
+为系统配置主机名：
+
+vim /etc/hosts
+# 添加如下内容
+127.0.0.1 peer1 peer2
+
+对于Windows系统，请修改C:\windows\system32\drivers\etc\hosts文件
+
+
+
+以microservice-provider-user 项目为例，只须修改eureka.client.serviceUrl.defaultZone，配置多个Eureka Server地址，就可以将其注册到Eureka Server集群了。示例：
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
+这样就可以将服务注册到Eureka Server集群上了。
+
+当然，微服务即使只配置Eureka Server集群中的某个节点，也能正常注册到Eureka Server集群，因为多个Eureka Server之间的数据会相互同步。例如：
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/
+      
+      
+      
+      
+      启动：
+
+java -jar microservice-discovery-eureka-ha-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer1
+java -jar microservice-discovery-eureka-ha-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer2

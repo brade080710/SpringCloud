@@ -8,7 +8,10 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class MicroserviceConsumerMovieRibbonApplication {
-
+    /**
+     *
+     * @LoadBalanced 整合riddon
+     */
     @Bean
     @LoadBalanced
     public RestTemplate restTemplate() {

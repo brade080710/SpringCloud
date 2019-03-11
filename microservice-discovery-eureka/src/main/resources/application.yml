@@ -8,7 +8,7 @@ spring:
       name: user                # 配置登录的账号是user
       password: password123     # 配置登录的密码是password123
   application:
-    name: microservice-discovery-eureka-ha
+    name: microservice-discovery-eureka
 eureka:
   client:
     # 是否要注册到其他Eureka Server实例

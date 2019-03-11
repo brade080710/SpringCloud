@@ -6,17 +6,29 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="microservice-consumer-movie" />
+        <module name="microservice-discovery-eureka" />
+        <module name="microservice-discovery-eureka-ha" />
+        <module name="microservice-provider-user" />
         <module name="microservice-simple-consumer-movie" />
         <module name="microservice-simple-provider-user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="microservice-consumer-movie" target="1.8" />
+      <module name="microservice-discovery-eureka" target="1.8" />
+      <module name="microservice-discovery-eureka-ha" target="1.8" />
+      <module name="microservice-provider-user" target="1.8" />
       <module name="microservice-simple-consumer-movie" target="1.8" />
       <module name="microservice-simple-provider-user" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="microservice-consumer-movie" options="-parameters" />
+      <module name="microservice-discovery-eureka" options="-parameters" />
+      <module name="microservice-discovery-eureka-ha" options="-parameters" />
+      <module name="microservice-provider-user" options="-parameters" />
       <module name="microservice-simple-consumer-movie" options="-parameters" />
       <module name="microservice-simple-provider-user" options="-parameters" />
     </option>

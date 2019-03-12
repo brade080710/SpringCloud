@@ -8,7 +8,6 @@ logging:
     org.springframework.web: debug
 #    feign 日志
     com.it.cloud.feign.UserFeignClient: debug
-      java:
   pattern:
     file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %5p -- [%t] %-40.40logger{39} : %m%n%xEx{10}'
     console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %5p -- [%t] %-40.40logger{39} : %m%n%xEx{10}'

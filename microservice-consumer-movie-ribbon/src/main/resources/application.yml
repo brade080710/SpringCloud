@@ -25,4 +25,10 @@ eureka:
     # 是否注册IP到eureka server，如不指定或设为false，那就会注册主机名到eureka server
     prefer-ip-address: true
 
+#默认情况下Ribbon是懒加载的——首次请求Ribbon相关类才会初始化，这会导致首次请求过慢的问题，你可以配置饥饿加载，让Ribbon在应用启动时就初始化。
+ribbon:
+  eager-load:
+    enabled: true
+    # 多个用,分隔
+    clients: microservice-provider-user
 

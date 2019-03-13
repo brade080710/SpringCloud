@@ -1,0 +1,13 @@
+加依赖：由于spring-cloud-starter-netflix-eureka-client 已经包含spring-cloud-starter-netfilx-ribbon ，故而无需额外添加依赖
+
+测试
+依次启动microservice-discovery-eureka 、microservice-provider-user 两个实例、microservice-consumer-movie-ribbon
+访问http://localhost:8010/movies/users/1 多次，会发现两个user服务实例都会打印日志
+
+WARNING
+
+事实上，这里的目标服务名称，在Ribbon里叫虚拟主机名 ，主机名是不能包含_ 等特殊字符的——这意味着，一般不建议配置spring.application.name = xxx_xxx ，如果你的应用名称一定（谁这么变态？？）带有下划线这种字符，那么请额外配置eureka.instance.virtual-host-name = 一个合法的主机名 ，
+否则Ribbon将会提示虚拟主机名不合法的异常（在早期的版本则是报空指针）！这点请大家务必注意。
+
+
+Ribbon默认为我们提供了很多的负载均衡算法，例如轮询、随机、响应时间加权等——当然，为Ribbon自定义负载均衡算法也非常容易，只需实现IRule 接口即可

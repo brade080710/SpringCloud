@@ -31,7 +31,7 @@ ribbon:
     enabled: true
     # 多个用,分隔
     clients: microservice-provider-user
-
+# 访问查看状态http://localhost:8010/actuator/health
 management:
   endpoint:
     health:

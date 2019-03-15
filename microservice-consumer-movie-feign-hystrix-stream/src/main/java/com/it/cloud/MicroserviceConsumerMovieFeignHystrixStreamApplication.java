@@ -6,7 +6,7 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
- * feign 默认集成了hystrix，只需要在配置文件中开启就行了
+ * feign 默认集成了hystrix，只需要在配置文件中开启就行了 Feign暴露/actuaotr/hystrix.stream 端点
  */
 @EnableFeignClients
 @SpringBootApplication

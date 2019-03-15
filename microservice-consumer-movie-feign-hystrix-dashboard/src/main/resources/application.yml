@@ -1,0 +1,15 @@
+server:
+  port: 8030
+
+logging:
+  level:
+    root: WARN
+    com.it.cloud: debug
+    org.springframework.web: debug
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %5p -- [%t] %-40.40logger{39} : %m%n%xEx{10}'
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %5p -- [%t] %-40.40logger{39} : %m%n%xEx{10}'
+
+
+
+

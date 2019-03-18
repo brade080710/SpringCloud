@@ -16,6 +16,7 @@ public class UserController {
 
     @Autowired
     UserMapper userMapper;
+
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
     @GetMapping("/{id}")
     public User findById(@PathVariable Integer id) {

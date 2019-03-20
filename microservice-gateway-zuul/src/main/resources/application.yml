@@ -28,6 +28,7 @@ eureka:
 
 
 # http://localhost:8040/actuator/health
+# http://localhost:8040/actuator/hystrix.stream
 management:
   endpoints:
     web:

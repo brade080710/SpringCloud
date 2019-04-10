@@ -22,3 +22,7 @@ spring:
   datasource:
     username: dbuser
     password: '{cipher}851a6effab6619f43157a714061f4602be0131b73b56b0451a7e268c880daea3'
+    
+    
+注意点&坑
+encrypt.* 务必存放在bootstrap.* 中，否则加解密特性无法生效！！

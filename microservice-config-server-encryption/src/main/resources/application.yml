@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: microservice-config-server
+  cloud:
+    config:
+      server:
+        git:
+          # Git仓库地址
+          uri: https://github.com/brade080710/spring-cloud-config-repo.git
+          # Git仓库账号
+          username: brade080710
+          # Git仓库密码
+          password: pbn20083071021
+
+logging:
+  level:
+    root: WARN
+    com.it.cloud: debug
+    org.springframework.web: debug
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %5p -- [%t] %-40.40logger{39} : %m%n%xEx{10}'
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %5p -- [%t] %-40.40logger{39} : %m%n%xEx{10}'
+
+
+
+
+

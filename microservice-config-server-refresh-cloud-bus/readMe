@@ -1,4 +1,4 @@
-1. 加入如下配置
+1. 在项目microservice-config-server-refresh-cloud-bus加入如下配置
 
 management:
   endpoints:

@@ -1,0 +1,32 @@
+1. 加入如下配置
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+        
+ 为项目添加spring-cloud-starter-bus-amqp 的依赖。
+
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+</dependency>
+(4) 在bootstrap.yml中添加以下内容：
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    分别启动microservice-config-server  microservice-config-client-refresh-cloud-bus  microservice-config-client-refresh-cloud-bus-second
+  访问http://localhost:8081/profile ，可获得结果：dev-1.0。
+  访问http://localhost:8082/profile ，可获得结果：dev-1.0。
+
+(4) 将git仓库中的microservice-foo-dev.properties文件内容改为profile=dev-1.0-bus
+
+(5) 发送POST请求到其中一个Config Client节点的的/actuator/bus-refresh端点，例如：
+
+curl -X POST http://localhost:8081/actuator/bus-refresh
+(6) 访问两个Config Client节1/bus/refresh点的/profile端点，会发现两个节点都会返回dev-1.0-bus ，说明配置内容已被刷新。
